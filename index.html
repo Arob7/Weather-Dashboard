@@ -4,40 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
 
   <body>
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 text-center">
-        <input type="text" placeholder="City" /><button
-          type="button"
-          class="query_btn btn btn-default btn-sm"
-        >
-          Search</button
-        ><br />
-        <input type="text" placeholder="Zip Code" /><button
-          type="button"
-          class="query_btn btn btn-default btn-sm"
-        >
-          Search</button
-        ><br />
+    <!-- BUTTON CONTAINER -->
+    <div class="btn-container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h3>Search Weather Conditions</h3>
+          <input type="text" placeholder="City" /><button
+            type="button"
+            class="query_btn btn btn-info btn-sm"
+          >
+            Search</button
+          ><br />
+          <input type="text" placeholder="Zip Code" /><button
+            type="button"
+            class="query_btn btn btn-info btn-sm"
+          >
+            Search</button
+          ><br />
+        </div>
       </div>
     </div>
 
-    <!-- API-KEY = 8922c7c9ff2ae54c2727e6a09d80cc98 -->
-
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 text-center">
-        <h2>City: <span id="city"></span></h2>
-        <h2>Main Weather: <span id="main_weather"></span></h2>
-        <h2>Description: <span id="description_weather"></span></h2>
-        <img id="weather_image" src="" />
-        <h2>Temperature: <span id="temperature"></span></h2>
-        <h2>Pressure: <span id="pressure"></span></h2>
-        <h2>Humidity: <span id="humidity"></span></h2>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <div class="col">City: <span id="city"></span></div>
+          <div class="col">Main Weather: <span id="main_weather"></span></div>
+          <div class="col">Description: <span id="description_weather"></span></div>
+          <div class="col"><img id="weather_image" src="" />
+          <div class="col">Temperature: <span id="temperature"></span></div>
+          <div class="col">Pressure: <span id="pressure"></span></div>
+          <div class="col">Humidity: <span id="humidity"></span></div>
+          <div class="col">UV: <span id="UV"></span></div>
+        </div>
       </div>
     </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
   </body>
