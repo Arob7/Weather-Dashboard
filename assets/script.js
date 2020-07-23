@@ -17,7 +17,7 @@ $(document).ready(function () {
     // THIS RETRIEVES ZIPCODE INFO
     if ($(this).prev().attr("placeholder") == "Zip Code") {
       var weather =
-        "http://api.openweathermap.org/data/2.5/weather?zip=" +
+        "https://api.openweathermap.org/data/2.5/weather?zip=" +
         query_param +
         "&units=Imperial&APPID=" +
         appID;
