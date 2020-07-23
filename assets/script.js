@@ -30,7 +30,7 @@ $(document).ready(function () {
       var coord = response.coord;
 
       var queryUrl =
-        "http://api.openweathermap.org/data/2.5/onecall?lat=" +
+        "https://api.openweathermap.org/data/2.5/onecall?lat=" +
         coord.lat +
         "&lon=" +
         coord.lon +
