@@ -1,13 +1,13 @@
 $(document).ready(function () {
   var appID = "8922c7c9ff2ae54c2727e6a09d80cc98";
 
-  if (location.protocol === "http:") {
-    url =
-      "http://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
-  } else {
-    url =
-      "https://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
-  }
+  // if (location.protocol === "http:") {
+  //   url =
+  //     "http://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
+  // } else {
+  //   url =
+  //     "https://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
+  // }
 
   // BUTTON GRABS DATA FROM INPUT
   $(".query_btn").click(function () {
@@ -30,7 +30,7 @@ $(document).ready(function () {
       var coord = response.coord;
 
       var queryUrl =
-        "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+        "http://api.openweathermap.org/data/2.5/onecall?lat=" +
         coord.lat +
         "&lon=" +
         coord.lon +
