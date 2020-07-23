@@ -1,12 +1,6 @@
 $(document).ready(function () {
   var appID = "8922c7c9ff2ae54c2727e6a09d80cc98";
 
-  // var forecast =
-  //   "https://api.openweathermap.org/data/2.5/forecast?4269100fc528413bd680bdd1eb05bd5d={cityname}={countrycode}";
-
-  // var uvIndex =
-  //   "https://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
-
   // BUTTON GRABS DATA FROM INPUT
   $(".query_btn").click(function () {
     var query_param = $(this).prev().val();
