@@ -1,17 +1,19 @@
 $(document).ready(function () {
   var appID = "8922c7c9ff2ae54c2727e6a09d80cc98";
 
+  var forecast =
+    "https://api.openweathermap.org/data/2.5/forecast?4269100fc528413bd680bdd1eb05bd5d={cityname}={countrycode}";
+
+  var uvIndex =
+    "https://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
+
+  // BUTTON GRABS DATA FROM INPUT
   $(".query_btn").click(function () {
     var query_param = $(this).prev().val();
+    console.log(query_param);
 
-    // THIS RETRIEVES CITY AND ZIPCODE INFO
-    if ($(this).prev().attr("placeholder") == "City") {
-      var weather =
-        "http://api.openweathermap.org/data/2.5/weather?q=" +
-        query_param +
-        "&units=Imperial&APPID=" +
-        appID;
-    } else if ($(this).prev().attr("placeholder") == "Zip Code") {
+    // THIS RETRIEVES ZIPCODE INFO
+    if ($(this).prev().attr("placeholder") == "Zip Code") {
       var weather =
         "http://api.openweathermap.org/data/2.5/weather?zip=" +
         query_param +
@@ -53,7 +55,7 @@ $(document).ready(function () {
         // THIS SHOULD GRAB FORECAST INFO --- HELP!!!
 
         // $.get(weather, function () {
-        //   var forecast = "api.openweathermap.org/data/2.5/forecast?lat="
+        //   var forecast = "api.openweathermap.org/data/2.5/forecast?"
         //     coord.lat +
         //   "&lon=" +
         //   coord.lon +
