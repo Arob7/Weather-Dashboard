@@ -1,20 +1,12 @@
 $(document).ready(function () {
   var appID = "8922c7c9ff2ae54c2727e6a09d80cc98";
 
-  // if (location.protocol === "http:") {
-  //   url =
-  //     "http://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
-  // } else {
-  //   url =
-  //     "https://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f";
-  // }
-
-  // BUTTON GRABS DATA FROM INPUT
+  // SEARCH BUTTON
   $(".query_btn").click(function () {
     var query_param = $(this).prev().val();
     console.log(query_param);
 
-    // THIS RETRIEVES ZIPCODE INFO
+    // ZIPCODE SEARCH
     if ($(this).prev().attr("placeholder") == "Zip Code") {
       var weather =
         "https://api.openweathermap.org/data/2.5/weather?zip=" +
@@ -36,35 +28,13 @@ $(document).ready(function () {
         coord.lon +
         "&appid=" +
         appID;
+
       // THIS WILL RETRIEVE WEATHER ICON
       $.get(queryUrl, function (data) {
         var iconcode = response.weather[0].icon;
         console.log(response);
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-
-        // THIS SHOULD GRAB UV INFO --- HELP!!
-        // $.get(weather, function (input) {
-        //   var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?appid="
-        //   coord.lat +
-        // "&lon=" +
-        // coord.lon +
-        // "&appid=" +
-        // appID;
-
-        //   response.uvIndex.[4]
-        //   console.log(input);
-
-        // THIS SHOULD GRAB FORECAST INFO --- HELP!!!
-
-        // $.get(weather, function () {
-        //   var forecast = "api.openweathermap.org/data/2.5/forecast?"
-        //     coord.lat +
-        //   "&lon=" +
-        //   coord.lon +
-        //     "&appid=" +
-        //             appID;
-
-        // ------------------------------------
+        console.log(data);
 
         $("#city").html(response.name);
         $("#main_weather").html(response.weather[0].main);
@@ -76,7 +46,25 @@ $(document).ready(function () {
         $("#temperature").html(response.main.temp);
         $("#pressure").html(response.main.pressure);
         $("#humidity").html(response.main.humidity);
-        // $("#uv").html(response.main.uvIndex);
+        $("#uv").html(data.current.uvi);
+
+        // LOOP CREATES NEW DIV FOR LAST ZIP CODE SEARCH
+        var forecast = $(".forecast-container");
+        for (i = 1; i < 6; i++) {
+          var htmlStr = ` <div class="col-lg-8 col-lg-offset-2 text-center">
+              <div class="col">Main Weather: <span>${data.daily[i].weather[0].main}</span></div>
+              <div class="col">
+                Description: <span >${data.daily[i].weather[0].description}</span>
+              </div>
+              <div class="col">
+                <img id="weather_image" src="http://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png" />
+                <div class="col">Temperature: <span>${data.daily[i].temp.day}</span></div>
+                <div class="col">Pressure: <span>${data.daily[i].pressure}</span></div>
+                <div class="col">Humidity: <span>${data.daily[i].humidity}</span></div>
+              </div>
+            </div>`;
+          forecast.append(htmlStr);
+        }
       });
     });
   });
@@ -89,13 +77,4 @@ $(document).ready(function () {
   $("#pressure").val(localStorage.getItem("#pressure"));
   $("#humidity").val(localStorage.getItem("#humidity"));
   $("#uv").val(localStorage.getItem("#uv"));
-
-  // fahrenheit CONVERSION
-
-  $("#convertToFahrenheit").click(function () {
-    if (fahrenheit == false) {
-      $("#temperature").text($("#temperature").text() * (9 / 5) + 32);
-    }
-    fahrenheit = true;
-  });
 });
