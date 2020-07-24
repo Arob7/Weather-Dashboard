@@ -6,3 +6,11 @@ body {
 .btn-container {
   float: left;
 }
+
+.weather-container {
+  background-color: salmon;
+}
+
+.forecast-container {
+  background-color: springgreen;
+}
