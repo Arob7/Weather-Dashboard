@@ -21,8 +21,8 @@
     <!-- BUTTON CONTAINER -->
     <div class="btn-container">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 text-center">
-          <h3>Search for Current Weather</h3>
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h3>Search for Weather by Zipcode</h3>
           <input type="text" placeholder="Zip Code" /><button
             type="button"
             class="query_btn btn btn-info btn-sm"
@@ -36,6 +36,7 @@
     <div class="weather-container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h4>CURRENT WEATHER</h4>
           <div class="col">City: <span id="city"></span></div>
           <div class="col">Main Weather: <span id="main_weather"></span></div>
           <div class="col">
@@ -51,7 +52,7 @@
         </div>
       </div>
     </div>
-
+    <h4>5 DAY FORECAST</h4>
     <div class="forecast-container row"></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -16,3 +16,8 @@ body {
   background-color: springgreen;
   justify-content: center;
 }
+
+h4,
+h3 {
+  text-align: center;
+}
