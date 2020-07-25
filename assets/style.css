@@ -9,6 +9,7 @@ body {
 
 .weather-container {
   background-color: salmon;
+  justify-content: center;
 }
 
 .forecast-container {
