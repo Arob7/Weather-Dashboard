@@ -13,4 +13,5 @@ body {
 
 .forecast-container {
   background-color: springgreen;
+  justify-content: center;
 }

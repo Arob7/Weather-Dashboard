@@ -15,9 +15,7 @@ $(document).ready(function () {
         appID;
     }
 
-    console.log("get");
-
-    // THIS WILL RETRIEVE WEATHER DATA INFO
+    // WEATHER DATA INFO
     $.get(weather, function (response) {
       var coord = response.coord;
 
