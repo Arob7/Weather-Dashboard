@@ -3,5 +3,5 @@ A weather dashboard that will run in the browser and feature dynamically updated
 
 Here is a link: https://arob7.github.io/Weather-Dashboard/
 
-A screenshot: 
+A screenshot: ![](images/weatherappscreenshot.PNG)
 
