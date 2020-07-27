@@ -1,6 +1,10 @@
 $(document).ready(function () {
   var appID = "8922c7c9ff2ae54c2727e6a09d80cc98";
 
+  // var forecastTemp = query_param +
+  // "&units=Imperial&APPID=" +
+  // appID;
+
   // SEARCH BUTTON
   $(".query_btn").click(function () {
     var query_param = $(this).prev().val();
@@ -15,7 +19,7 @@ $(document).ready(function () {
         appID;
     }
 
-    // WEATHER DATA INFO
+    // WEATHER COORDINATES
     $.get(weather, function (response) {
       var coord = response.coord;
 
@@ -24,7 +28,7 @@ $(document).ready(function () {
         coord.lat +
         "&lon=" +
         coord.lon +
-        "&appid=" +
+        "&units=Imperial&appid=" +
         appID;
 
       // THIS WILL RETRIEVE WEATHER ICON
@@ -48,6 +52,7 @@ $(document).ready(function () {
 
         // LOOP CREATES NEW DIV FOR LAST ZIP CODE SEARCH
         var forecast = $(".forecast-container");
+        forecast.empty();
         for (i = 1; i < 6; i++) {
           var htmlStr = ` <div class="col-lg-8 col-lg-offset-2 text-center">
               <div class="col">Main Weather: <span>${data.daily[i].weather[0].main}</span></div>
